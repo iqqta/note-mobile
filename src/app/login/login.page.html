@@ -1,0 +1,26 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-title class="ion-text-center">Catat</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true" class="login-page">
+  <div class="login-container">
+    <!-- Logo -->
+    <div class="logo-container">
+      <ion-icon name="book" class="app-logo"></ion-icon>
+    </div>
+
+    <!-- Title -->
+    <ion-text>
+      <h1 class="login-title">Welcome</h1>
+      <p class="login-subtitle">Catat Seperlunya</p>
+    </ion-text>
+
+    <!-- Google Sign-In Button -->
+    <ion-button expand="block" (click)="login()" color="primary" class="google-signin-btn">
+      <ion-icon slot="start" name="logo-google"></ion-icon>
+      <ion-label>Masuk dengan Google</ion-label>
+    </ion-button>
+  </div>
+</ion-content>

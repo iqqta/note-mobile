@@ -1,0 +1,39 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <!-- Panah kembali di pojok kiri atas -->
+    <ion-buttons slot="start">
+      <ion-back-button defaultHref="/"></ion-back-button>
+    </ion-buttons>
+    <ion-title>Catatan</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true">
+  <ion-header collapse="condense">
+    <ion-toolbar>
+      <ion-title size="large">Edit Note</ion-title>
+    </ion-toolbar>
+  </ion-header>
+
+  <form (ngSubmit)="saveNote()">
+    <!-- Detail catatan -->
+    <div class="note-details">
+      <ion-item>
+        <ion-label position="floating">Judul</ion-label>
+        <ion-input type="text" [(ngModel)]="note.title" name="title" required></ion-input>
+      </ion-item>
+
+      <ion-item>
+        <ion-label position="floating">Deskripsi</ion-label>
+        <ion-textarea [(ngModel)]="note.description" name="description" required></ion-textarea>
+      </ion-item>
+    </div>
+
+    <!-- Tombol Save di pojok kanan bawah -->
+    <ion-fab vertical="bottom" horizontal="end" slot="fixed" class="fab-button">
+      <ion-fab-button type="submit" (click)="saveNote()">
+        <ion-icon name="save"></ion-icon>
+      </ion-fab-button>
+    </ion-fab>
+  </form>
+</ion-content>

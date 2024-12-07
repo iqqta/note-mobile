@@ -1,0 +1,38 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <!-- Tombol Back di pojok kiri atas -->
+    <ion-buttons slot="start">
+      <ion-back-button defaultHref="/home"></ion-back-button> <!-- Ganti dengan URL tujuan kembali -->
+    </ion-buttons>
+    <ion-title>Profil</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true" class="profile-page">
+  <ion-header collapse="condense">
+    <ion-toolbar>
+      <ion-title size="large">Profil Pengguna</ion-title>
+    </ion-toolbar>
+  </ion-header>
+
+  <div class="profile-container">
+    <ion-card>
+      <ion-card-header>
+        <ion-avatar slot="start" class="avatar">
+          <!-- Menampilkan foto profil jika ada, jika tidak tampilkan gambar default -->
+          <img *ngIf="userProfile.avatarUrl" [src]="userProfile.avatarUrl" alt="User Profile" />
+        </ion-avatar>
+        <ion-card-title>{{ userProfile.name }}</ion-card-title>
+        <ion-card-subtitle>{{ userProfile.email }}</ion-card-subtitle>
+      </ion-card-header>
+
+      <ion-card-content>
+        <p>Bio: {{ userProfile.bio }}</p>
+      </ion-card-content>
+
+      <ion-button expand="full" color="primary" (click)="editProfile()">
+        Edit Profil
+      </ion-button>
+    </ion-card>
+  </div>
+</ion-content>

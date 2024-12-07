@@ -25,3 +25,53 @@
 #container a {
   text-decoration: none;
 }
+
+.fab-button {
+  margin: 16px; // Jarak dari tepi layar
+}
+
+.notes-page ion-card {
+  position: relative;
+  margin-bottom: 16px;
+  border-radius: 12px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1); /* Memberikan bayangan halus */
+}
+
+.card-content {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.note-text {
+  display: flex;
+  flex-direction: column;
+}
+
+.note-text ion-icon {
+  margin-bottom: 8px;
+  font-size: 18px;
+}
+
+.delete-button {
+  margin-left: auto; /* Mendorong tombol ke sisi kanan */
+  font-size: 15px;
+}
+
+ion-avatar {
+  width: 35px;  
+  height: 35px; 
+  border-radius: 50%;
+  margin: 10px;
+}
+
+.no-notes {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh; /* Mengisi seluruh tinggi viewport */
+  text-align: center;
+  color: #666; /* Warna teks */
+  font-size: 18px; /* Ukuran font */
+  font-weight: 500; /* Ketebalan font */
+}
