@@ -1,31 +1,55 @@
+<ion-menu side="start" menuId="first" contentId="main-content">
+  <ion-header>
+    <ion-toolbar>
+      <ion-title>Kategori</ion-title>
+    </ion-toolbar>
+  </ion-header>
+
+  <ion-content>
+    <ion-list>
+      <ion-item button (click)="filterCategory('all')">
+        <ion-icon name="document-outline" slot="start"></ion-icon>
+        <ion-label>Semua catatan</ion-label>
+      </ion-item>
+      <ion-item button (click)="filterCategory('favorite')">
+        <ion-icon name="star-outline" slot="start"></ion-icon>
+        <ion-label>Favorite</ion-label>
+      </ion-item>
+    </ion-list>
+  </ion-content>
+</ion-menu>
+
+<!-- Halaman Utama -->
 <ion-header [translucent]="true">
   <ion-toolbar>
-    <!-- Avatar profil di pojok kanan atas -->
-    <ion-buttons slot="end">
-      <ion-avatar (click)="profile()">
-        <img *ngIf="userProfilePhoto" [src]="userProfilePhoto" alt="User Profile" />
-      </ion-avatar>
+    <ion-buttons slot="start">
+      <ion-menu-button></ion-menu-button> <!-- Tombol untuk membuka side menu -->
     </ion-buttons>
-    <ion-title>
-      Catatan
-    </ion-title>
+    <ion-title>Catatan</ion-title>
   </ion-toolbar>
 </ion-header>
 
-<ion-content [fullscreen]="true" class="notes-page">
+<ion-content [fullscreen]="true" id="main-content" class="notes-page">
   <ion-header collapse="condense">
     <ion-toolbar>
       <ion-title size="large">Daftar Catatan</ion-title>
     </ion-toolbar>
   </ion-header>
 
+  <!-- Search bar untuk mencari catatan -->
+  <ion-searchbar 
+    placeholder="Cari catatan..."
+    [(ngModel)]="searchQuery"
+    (ionInput)="filterNotes()">
+  </ion-searchbar>
+
   <!-- Menampilkan pesan jika tidak ada catatan -->
-  <div *ngIf="notes.length === 0" class="no-notes">
-    <p>Tidak ada catatan tersedia.</p>
+  <div *ngIf="filteredNotes.length === 0" class="no-notes">
+    <p>Tidak ada catatan ditemukan.</p>
   </div>
 
   <!-- Menampilkan daftar catatan -->
-  <ion-card *ngFor="let note of notes" (click)="viewNote(note.id || '')">
+  <ion-card *ngFor="let note of filteredNotes" (click)="viewNote(note.id || '')">
     <ion-card-header>
       <ion-card-title>{{ note.title }}</ion-card-title>
     </ion-card-header>
@@ -37,16 +61,24 @@
       </div>
 
       <!-- Tombol hapus catatan -->
-      <ion-button color="danger" fill="clear" class="delete-button" (click)="deleteNote(note.id); $event.stopPropagation()">
-        <ion-icon name="trash"></ion-icon>
-      </ion-button>
+      <div class="action-buttons">
+        <!-- Tombol favorit -->
+        <ion-button color="warning" fill="clear" class="favorite-button" (click)="toggleFavorite(note); $event.stopPropagation()">
+          <ion-icon [name]="note.isFavorite ? 'star' : 'star-outline'"></ion-icon>
+        </ion-button>
+        <!-- Tombol hapus -->
+        <ion-button color="danger" fill="clear" class="delete-button" (click)="deleteNote(note.id); $event.stopPropagation()">
+          <ion-icon name="trash"></ion-icon>
+        </ion-button>
+      </div>
     </ion-card-content>
   </ion-card>
 
   <!-- Tombol untuk menambah catatan baru (floating action button) -->
   <ion-fab vertical="bottom" horizontal="end" slot="fixed" class="fab-button">
-    <ion-fab-button (click)="addNote()">
-      <ion-icon name="add"></ion-icon>
+    <!-- Tombol Utama "+" -->
+    <ion-fab-button (click)="addNote()" class="btntop">
+      <ion-icon name="pencil"></ion-icon>
     </ion-fab-button>
   </ion-fab>
 </ion-content>

@@ -16,6 +16,7 @@ export class ViewnotePage implements OnInit {
     description: '',
     createdAt: Timestamp.now(),
     updatedAt: Timestamp.now(),
+    category: 'uncategorized',
   };
 
   noteId: string | null = null;

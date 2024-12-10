@@ -25,6 +25,7 @@ export class CreatePage {
         description: this.noteDescription,
         createdAt: this.firestoreService.getTimestamp(),
         updatedAt: this.firestoreService.getTimestamp(),
+        category: 'uncategorized',
       };
 
       try {

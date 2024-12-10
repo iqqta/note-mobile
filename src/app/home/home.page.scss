@@ -75,3 +75,12 @@ ion-avatar {
   font-size: 18px; /* Ukuran font */
   font-weight: 500; /* Ketebalan font */
 }
+
+.fab-button {
+  position: fixed;
+  z-index: 9999; /* Pastikan tombol berada di atas elemen lain */
+}
+
+.btntop {
+  margin-bottom: 10px;
+}

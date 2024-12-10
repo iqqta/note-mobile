@@ -26,11 +26,15 @@ export interface NoteData {
   description: string;
   createdAt: Timestamp;
   updatedAt: Timestamp;
+  category: string;
+  isFavorite?: boolean;
+  isReminder?: boolean;
 }
 
 @Injectable({
   providedIn: 'root',
 })
+
 export class FirestoreService {
   
   getTimestamp() {
@@ -60,6 +64,8 @@ export class FirestoreService {
     return collection(db, 'users', uid, 'notes');
   }
 
+  
+
   // Create new note
   async addNote(note: Omit<NoteData, 'id'>): Promise<string> {
     try {
@@ -75,6 +81,8 @@ export class FirestoreService {
       throw error;
     }
   }
+
+  
   
   // Read all notes
   async getNotes(): Promise<NoteData[]> {
@@ -93,6 +101,7 @@ export class FirestoreService {
       throw error;
     }
   }
+
 
   // Update note
   async updateNote(id: string, note: Partial<NoteData>): Promise<void> {
@@ -120,4 +129,5 @@ export class FirestoreService {
       throw error;
     }
   }
+
 }
