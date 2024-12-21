@@ -14,10 +14,8 @@
     transform: translate(-50%, -50%); 
     width: 90%;
     max-width: 400px; 
-    background-color: black; /* Latar belakang putih untuk kontras */
     padding: 20px;
     border-radius: 15px; /* Sudut lebih lembut */
-    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2); /* Bayangan lebih lembut */
     text-align: center;
   }
   
@@ -32,14 +30,14 @@
   
   .login-title {
     font-size: 26px; /* Sedikit lebih besar */
-    color:white; /* Abu-abu lembut */
+    color:black; /* Abu-abu lembut */
     font-weight: bold;
     margin-bottom: 10px;
   }
   
   .login-subtitle {
     font-size: 16px;
-    color: white; /* Abu-abu netral */
+    color: black; /* Abu-abu netral */
     margin-bottom: 20px;
   }
   

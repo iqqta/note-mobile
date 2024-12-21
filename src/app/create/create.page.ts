@@ -39,7 +39,7 @@ export class CreatePage {
       }
     } else {
       // Jika ada input yang kosong
-      alert('Judul dan deskripsi catatan tidak boleh kosong');
+      this.router.navigate(['/home']);
     }
   }
 }

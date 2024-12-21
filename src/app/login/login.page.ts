@@ -1,5 +1,4 @@
 import { Component } from '@angular/core';
-import { IonButton, IonLabel, IonIcon, IonText } from '@ionic/angular';
 import { logoGoogle } from 'ionicons/icons';
 import { AuthService } from '../services/auth.service';
 import { Router } from '@angular/router';  // Import Router
